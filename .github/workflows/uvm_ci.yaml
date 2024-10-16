@@ -8,10 +8,10 @@ jobs:
   verify_AHB_RAM128:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -52,17 +52,17 @@ jobs:
       
       - name: upload failed tests
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: failed_tests
           path: verify/uvm-python/failed_tests.tar.gz
   verify_AHB_RAM256:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -103,17 +103,17 @@ jobs:
       
       - name: upload failed tests
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: failed_tests
           path: verify/uvm-python/failed_tests.tar.gz
   verify_AHB_RAM512:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -154,7 +154,7 @@ jobs:
       
       - name: upload failed tests
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: failed_tests
           path: verify/uvm-python/failed_tests.tar.gz
@@ -180,7 +180,7 @@ jobs:
             extra-trusted-public-keys = openlane.cachix.org-1:qqdwh+QMNGmZAuyeQJTH9ErW57OWSvdtuwfBKdS254E=
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -225,7 +225,7 @@ jobs:
       
       - name: upload failed tests
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: failed_tests
           path: verify/uvm-python/failed_tests.tar.gz
@@ -251,7 +251,7 @@ jobs:
             extra-trusted-public-keys = openlane.cachix.org-1:qqdwh+QMNGmZAuyeQJTH9ErW57OWSvdtuwfBKdS254E=
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -296,7 +296,7 @@ jobs:
       
       - name: upload failed tests
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: failed_tests
           path: verify/uvm-python/failed_tests.tar.gz
@@ -322,7 +322,7 @@ jobs:
             extra-trusted-public-keys = openlane.cachix.org-1:qqdwh+QMNGmZAuyeQJTH9ErW57OWSvdtuwfBKdS254E=
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -367,7 +367,7 @@ jobs:
       
       - name: upload failed tests
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: failed_tests
           path: verify/uvm-python/failed_tests.tar.gz
@@ -376,7 +376,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -384,7 +384,7 @@ jobs:
         run: |
           docker pull efabless/dv:cocotb
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Lint
         run: |
           cd verify/uvm-python
@@ -399,7 +399,7 @@ jobs:
           exit 2
       - name: Upload lint results
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: lint_results.log
           path: verify/uvm-python/sim/linter.log
