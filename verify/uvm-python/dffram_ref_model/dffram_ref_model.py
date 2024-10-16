@@ -87,14 +87,14 @@ class dffram_ref_model(ref_model):
             # For example, to read the same resgiter uncomment the following lines
             td = tr.do_clone()
             if tr.write_size == "byte":
-                td.data = self.ram.read_word(tr.addr >> 2)
+                td.data = self.ram.read_word(tr.addr >> 2) & 0xFF
             elif tr.write_size == "half":
                 if tr.addr & 0b1 != 0b0:
                     uvm_error(
                         self.tag,
                         f"Half word address not aligned transaction: {tr.convert2string()}",
                     )
-                td.data = self.ram.read_word(tr.addr >> 2)
+                td.data = self.ram.read_word(tr.addr >> 2) & 0xFFFF
             elif tr.write_size == "word":
                 if tr.addr & 0b11 != 0b00:
                     uvm_error(
